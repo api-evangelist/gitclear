@@ -1,0 +1,74 @@
+aid: gitclear
+name: GitClear
+review:
+  question: Does GitClear expose a documented public WebSocket or event-driven (AsyncAPI) API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    GitClear's public API is a synchronous request/response REST API only. No
+    WebSocket, Server-Sent Events (SSE), or webhook event stream is documented
+    in the public API reference, so no AsyncAPI document was created.
+findings:
+  summary: |
+    GitClear publishes a synchronous REST API at https://www.gitclear.com/api/v1
+    authenticated with a Bearer API token. It covers reports/Diff Delta,
+    data audits, code line history, repository imports, releases, developers,
+    teams, surveys, and API token management. No realtime, bidirectional, or
+    streaming WebSocket (ws:// or wss://) endpoint is documented, and no
+    outbound webhook or SSE event surface is described in the public reference.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://www.gitclear.com/api/v1
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in GitClear's API reference as of the review date.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events streaming surface is documented.
+  endpointsConfirmedRest:
+    - GET  https://www.gitclear.com/api/v1/reports
+    - GET  https://www.gitclear.com/api/v1/segment_introspections
+    - GET  https://www.gitclear.com/api/v1/audits
+    - GET  https://www.gitclear.com/api/v1/code_introspections/line_history
+    - GET  https://www.gitclear.com/api/v1/imports
+    - POST https://www.gitclear.com/api/v1/imports
+    - GET  https://www.gitclear.com/api/v1/releases
+    - POST https://www.gitclear.com/api/v1/releases
+    - GET  https://www.gitclear.com/api/v1/developers
+    - POST https://www.gitclear.com/api/v1/developers/record_time_off
+    - POST https://www.gitclear.com/api/v1/developers/remove_time_off
+    - POST https://www.gitclear.com/api/v1/developers/set_processing
+    - GET  https://www.gitclear.com/api/v1/teams
+    - POST https://www.gitclear.com/api/v1/teams
+    - PUT  https://www.gitclear.com/api/v1/teams
+    - DELETE https://www.gitclear.com/api/v1/teams
+    - GET  https://www.gitclear.com/api/v1/teams/associated_repos
+    - GET  https://www.gitclear.com/api/v1/api_tokens
+    - POST https://www.gitclear.com/api/v1/critical_defects
+    - POST https://www.gitclear.com/api/v1/ai_usages
+sources:
+  - url: https://www.gitclear.com/api_reference
+    type: APIReference
+    note: Lists REST base URL https://www.gitclear.com/api/v1 with Bearer auth; all endpoints are HTTPS REST.
+  - url: https://www.gitclear.com/help/customer_rest_api
+    type: Documentation
+    note: Customer help article describing how to use the GitClear REST API; no WebSocket mentioned.
+  - url: https://www.gitclear.com/diff_delta_factors
+    type: Documentation
+    note: Explains the Diff Delta metric surfaced through the Reports API.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket, SSE, or webhook event surface exists in GitClear's public
+    documentation. The catalog models only the documented synchronous REST API
+    via OpenAPI; no AsyncAPI document was authored.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

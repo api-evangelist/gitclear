@@ -1,0 +1,51 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: GitClear
+providerId: gitclear
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Code Analytics
+- Commit Analytics
+- Developer Productivity
+- Diff Delta
+- Engineering Metrics
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The GitClear public REST API authenticates with a per-account Bearer API token.
+  GitClear does not publish specific numeric rate-limit values (RPM/RPD) in its
+  public API reference; report endpoints are paginated via a `page` parameter and
+  callers should expect standard throttling responses on excessive usage. Specific
+  per-account limits are not reconciled in this artifact.
+notes: >-
+  No public numeric rate limits are documented by GitClear as of the review date.
+  Verify any enforced limits and pagination behavior directly with GitClear support
+  or in the API reference on reconciliation.
+sources:
+- https://www.gitclear.com/api_reference
+- https://www.gitclear.com/help/customer_rest_api
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests Per Minute (RPM)
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: No public numeric RPM published; not reconciled.
+- name: Pagination
+  scope: endpoint
+  metric: page
+  limit: paginated
+  notes: Report, audit, developer, and release endpoints accept a `page` query parameter for result paging.
+policies:
+- name: Token Authentication
+  description: All requests require a valid Bearer API token; invalid tokens return 401.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter on 429 responses and honor any Retry-After header.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

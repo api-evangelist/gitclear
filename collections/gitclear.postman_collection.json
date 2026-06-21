@@ -1,0 +1,249 @@
+{
+  "info": {
+    "name": "GitClear Public API",
+    "description": "Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and data audits, manage repository imports, trace per-line code history, and administer developers and teams. All requests require a Bearer API token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.gitclear.com/api/v1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Fetch chart data for measured segments.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reports?resource_path=&segment_by=&start_date=&end_date=",
+              "host": ["{{baseUrl}}"],
+              "path": ["reports"],
+              "query": [
+                { "key": "resource_path", "value": "" },
+                { "key": "segment_by", "value": "" },
+                { "key": "aggregate_by", "value": "" },
+                { "key": "start_date", "value": "" },
+                { "key": "end_date", "value": "" }
+              ]
+            },
+            "description": "Returns historical report data across 160+ metrics including Diff Delta, segmented by repo, team, issue type, and code domain."
+          }
+        },
+        {
+          "name": "Retrieve metadata about available report segments.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/segment_introspections?segment_em=",
+              "host": ["{{baseUrl}}"],
+              "path": ["segment_introspections"],
+              "query": [
+                { "key": "segment_em", "value": "" }
+              ]
+            },
+            "description": "Retrieves metadata about an available report segment."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Commits",
+      "item": [
+        {
+          "name": "Fetch underlying data substantiating reports.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/audits?resource_path=&resource_type=commits",
+              "host": ["{{baseUrl}}"],
+              "path": ["audits"],
+              "query": [
+                { "key": "resource_path", "value": "" },
+                { "key": "resource_type", "value": "commits", "description": "One of commits, issues, pull_requests, teams, tags." }
+              ]
+            },
+            "description": "Fetches the underlying commits, issues, or pull requests behind report numbers."
+          }
+        },
+        {
+          "name": "Retrieve per-line version history from a repository.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/code_introspections/line_history?resource_path=&file_path=&sha=",
+              "host": ["{{baseUrl}}"],
+              "path": ["code_introspections", "line_history"],
+              "query": [
+                { "key": "resource_path", "value": "" },
+                { "key": "file_path", "value": "" },
+                { "key": "sha", "value": "" }
+              ]
+            },
+            "description": "Retrieves per-line version history across a repository's commit graph."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Repositories",
+      "item": [
+        {
+          "name": "List existing repository imports.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/imports?resource_path=",
+              "host": ["{{baseUrl}}"],
+              "path": ["imports"],
+              "query": [
+                { "key": "resource_path", "value": "" }
+              ]
+            },
+            "description": "Lists existing repository imports."
+          }
+        },
+        {
+          "name": "Queue a repository import.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/imports",
+              "host": ["{{baseUrl}}"],
+              "path": ["imports"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resource_path\": \"\",\n  \"repo_path\": \"\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "description": "Queues a repository import."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Developers",
+      "item": [
+        {
+          "name": "List developers with activity.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/developers?resource_path=&committer_user_name=",
+              "host": ["{{baseUrl}}"],
+              "path": ["developers"],
+              "query": [
+                { "key": "resource_path", "value": "" },
+                { "key": "committer_user_name", "value": "" }
+              ]
+            },
+            "description": "Lists developers with their activity."
+          }
+        },
+        {
+          "name": "Record developer time off.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/developers/record_time_off",
+              "host": ["{{baseUrl}}"],
+              "path": ["developers", "record_time_off"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resource_path\": \"\",\n  \"start_date\": \"\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "description": "Records PTO or absences for a developer."
+          }
+        },
+        {
+          "name": "Set developer stat processing status.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/developers/set_processing",
+              "host": ["{{baseUrl}}"],
+              "path": ["developers", "set_processing"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"committer_user_name\": \"\",\n  \"processing_status\": \"processing_stats\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "description": "Sets a developer's processing status (processing_stats, limited_processing, not_processing)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Teams",
+      "item": [
+        {
+          "name": "List all teams.",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/teams",
+              "host": ["{{baseUrl}}"],
+              "path": ["teams"]
+            },
+            "description": "Lists all teams."
+          }
+        },
+        {
+          "name": "Create a team.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/teams",
+              "host": ["{{baseUrl}}"],
+              "path": ["teams"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "description": "Creates a team."
+          }
+        }
+      ]
+    }
+  ]
+}

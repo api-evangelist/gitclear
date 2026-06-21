@@ -1,0 +1,91 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: GitClear
+providerId: gitclear
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Code Analytics
+- Commit Analytics
+- Developer Productivity
+- Diff Delta
+- Engineering Metrics
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of GitClear spend. GitClear bills a per-active-developer subscription
+  per month, scaling by plan tier (Starter free, Pro, Elite, Enterprise). Cost is
+  driven primarily by the count of active developers tracked, with plan tier setting
+  repository caps, data-history window, and AI Data Deep Dive allowances. Annual
+  billing is discounted relative to monthly.
+notes: >-
+  Per-developer rates are subject to change; verify against the GitClear pricing page
+  during reconciliation. Cost optimization centers on which developers are designated
+  active vs. not-processing via the Developers API.
+sources:
+- https://www.gitclear.com/pricing
+- https://www.gitclear.com/api_reference
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: GitClear
+serviceCategory: Developer Tools and Analytics
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: GitClear
+  ServiceCategory: Developer Tools and Analytics
+  ProviderName: GitClear
+  PublisherName: GitClear
+  InvoiceIssuerName: GitClear
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription
+meters:
+- name: active_developers
+  description: Active developers tracked per month; the primary billing driver per plan tier.
+  unit: developers
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+  - team
+- name: repositories
+  description: Repositories analyzed, capped per plan tier.
+  unit: repositories
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: ai_data_deep_dives
+  description: AI Data Deep Dives consumed per month, allocated per plan tier.
+  unit: deep_dives
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+principles:
+- name: Visibility
+  description: Track active-developer counts and plan tier; inspect per-team Diff Delta to confirm tracked seats are productive.
+- name: Allocation
+  description: Map developers and repositories to teams via the Teams API to attribute spend to cost centers.
+- name: Optimization
+  description: Use the Developers API set_processing endpoint to mark inactive or exiled developers as not_processing; choose annual billing for the discount; right-size the plan tier to repository and data-window needs.
+- name: Accountability
+  description: Assign owners per team; review active-developer counts monthly against budget before renewal.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

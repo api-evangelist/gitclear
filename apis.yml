@@ -1,0 +1,111 @@
+aid: gitclear
+url: https://raw.githubusercontent.com/api-evangelist/gitclear/refs/heads/main/apis.yml
+name: GitClear
+kind: company
+description: GitClear provides code and commit analytics for engineering teams, centered
+  on its Diff Delta metric (formerly Line Impact) that scores durable code change beyond
+  raw lines. Its public REST API exposes repositories, commits/data audits, Diff Delta
+  reports, and developer management so teams can pull research-backed productivity and
+  AI-ROI metrics programmatically.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Code Analytics
+- Commit Analytics
+- Developer Productivity
+- Diff Delta
+- Engineering Metrics
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: gitclear:gitclear-repositories-api
+  name: GitClear Repositories API
+  tags:
+  - Repositories
+  - Imports
+  - Code
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  properties:
+  - url: https://www.gitclear.com/help/customer_rest_api
+    type: Documentation
+  - url: https://www.gitclear.com/api_reference
+    type: APIReference
+  - url: openapi/gitclear-openapi.yml
+    type: OpenAPI
+  description: List and queue repository imports, and connect repositories that GitClear
+    analyzes for commit history and Diff Delta scoring.
+- aid: gitclear:gitclear-commits-api
+  name: GitClear Commits API
+  tags:
+  - Commits
+  - Data Audit
+  - Line History
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  properties:
+  - url: https://www.gitclear.com/help/customer_rest_api
+    type: Documentation
+  - url: https://www.gitclear.com/api_reference
+    type: APIReference
+  - url: openapi/gitclear-openapi.yml
+    type: OpenAPI
+  description: Audit the underlying commits, pull requests, and issues behind report
+    numbers, and trace per-line version history across a repository's commit graph.
+- aid: gitclear:gitclear-metrics-diff-delta-api
+  name: GitClear Metrics & Diff Delta API
+  tags:
+  - Metrics
+  - Diff Delta
+  - Reports
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  properties:
+  - url: https://www.gitclear.com/diff_delta_factors
+    type: Documentation
+  - url: https://www.gitclear.com/api_reference
+    type: APIReference
+  - url: openapi/gitclear-openapi.yml
+    type: OpenAPI
+  description: Fetch chart and report data across 160+ measured segments - Diff Delta,
+    PR comments, releases - aggregated and segmented by repo, team, issue type, and
+    code domain over time.
+- aid: gitclear:gitclear-developers-api
+  name: GitClear Developers API
+  tags:
+  - Developers
+  - Teams
+  - Activity
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  properties:
+  - url: https://www.gitclear.com/help/customer_rest_api
+    type: Documentation
+  - url: https://www.gitclear.com/api_reference
+    type: APIReference
+  - url: openapi/gitclear-openapi.yml
+    type: OpenAPI
+  description: List developers and their activity, record and remove time off, set
+    per-developer stat processing status, and create or update teams programmatically.
+common:
+- type: GitHubOrganization
+  url: https://github.com/gitclear
+- type: LinkedIn
+  url: https://www.linkedin.com/company/gitclear
+- type: Website
+  url: https://www.gitclear.com
+- type: Documentation
+  url: https://www.gitclear.com/api_reference
+- type: Plans
+  url: plans/gitclear-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/gitclear-rate-limits.yml
+- type: FinOps
+  url: finops/gitclear-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

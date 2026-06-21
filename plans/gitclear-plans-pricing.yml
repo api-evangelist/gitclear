@@ -1,0 +1,196 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: GitClear
+providerId: gitclear
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Code Analytics
+- Commit Analytics
+- Developer Productivity
+- Diff Delta
+- Engineering Metrics
+- Plans
+description: >-
+  GitClear is priced per active developer per month, scaling by repository count,
+  data-history window, and number of AI Data Deep Dives. A free Starter tier covers
+  individuals and small teams; paid tiers (Pro, Elite, Enterprise) add repositories,
+  longer data windows, and on-premises options. All paid plans include a 15-day free
+  trial with no credit card required, with no annual contract lock-in. API access is
+  available to authenticated customers via Bearer API tokens.
+notes: >-
+  Prices shown are per active developer per month as published on the GitClear pricing
+  page; annual billing is discounted relative to monthly. Verify the current pricing
+  page on reconciliation as repository caps and Deep Dive allowances change.
+sources:
+- https://www.gitclear.com/pricing
+- https://www.gitclear.com/api_reference
+plans:
+- id: gitclear-starter
+  name: Starter
+  type: free
+  description: >-
+    Free tier for individuals and small teams to get started.
+  entries:
+  - label: Repositories
+    name: repositories
+    type: limit
+    metric: repositories
+    limit: 3
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  - label: Data Window
+    name: data_window
+    type: limit
+    metric: days
+    limit: 180
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: AI Data Deep Dives
+    name: ai_deep_dives
+    type: limit
+    metric: deep_dives
+    limit: 3
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Diff Delta Reports
+  - name: Commit Analytics
+- id: gitclear-pro
+  name: Pro
+  type: subscription
+  description: >-
+    Per-active-developer plan for growing teams; $14.95/dev/mo billed annually
+    or $29.00/dev/mo billed monthly.
+  entries:
+  - label: Per Active Developer
+    name: per_developer
+    type: flat
+    metric: developers
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $14.95/dev/mo annual or $29.00/dev/mo monthly
+    userMultiplied: true
+  - label: Repositories
+    name: repositories
+    type: limit
+    metric: repositories
+    limit: 25
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Data Window
+    name: data_window
+    type: limit
+    metric: days
+    limit: 1095
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: AI Data Deep Dives
+    name: ai_deep_dives
+    type: limit
+    metric: deep_dives
+    limit: 10
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Diff Delta Reports
+  - name: REST API Access
+  - name: Team Analytics
+- id: gitclear-elite
+  name: Elite
+  type: subscription
+  description: >-
+    Per-active-developer plan for larger orgs; $24.95/dev/mo billed annually
+    or $39.00/dev/mo billed monthly.
+  entries:
+  - label: Per Active Developer
+    name: per_developer
+    type: flat
+    metric: developers
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $24.95/dev/mo annual or $39.00/dev/mo monthly
+    userMultiplied: true
+  - label: Repositories
+    name: repositories
+    type: limit
+    metric: repositories
+    limit: 250
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: AI Data Deep Dives
+    name: ai_deep_dives
+    type: limit
+    metric: deep_dives
+    limit: 50
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Diff Delta Reports
+  - name: REST API Access
+  - name: Extended Data Window
+- id: gitclear-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Unlimited repositories and data window with on-premises option;
+    $34.95/dev/mo billed annually or $49.00/dev/mo billed monthly.
+  entries:
+  - label: Per Active Developer
+    name: per_developer
+    type: flat
+    metric: developers
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $34.95/dev/mo annual or $49.00/dev/mo monthly
+    userMultiplied: true
+  - label: AI Data Deep Dives
+    name: ai_deep_dives
+    type: limit
+    metric: deep_dives
+    limit: 200
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Unlimited Repositories
+  - name: Unlimited Data Window
+  - name: On-Premises Option
+  - name: REST API Access
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

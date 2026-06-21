@@ -1,0 +1,278 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitClear Public API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch chart data for measured segments.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/reports",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query",
+                "description": "Entity, organization, or repository path identifier."
+              },
+              {
+                "name": "segment_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns historical report data across 160+ metrics including Diff Delta, segmented by repo, team, issue type, and code domain."
+        },
+        {
+          "info": {
+            "name": "Retrieve metadata about available report segments.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/segment_introspections",
+            "params": [
+              {
+                "name": "segment_em",
+                "value": "",
+                "type": "query",
+                "description": "Segment enum identifier."
+              }
+            ]
+          },
+          "docs": "Retrieves metadata about an available report segment."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Commits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch underlying data substantiating reports.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/audits",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource_type",
+                "value": "commits",
+                "type": "query",
+                "description": "One of commits, issues, pull_requests, teams, tags."
+              }
+            ]
+          },
+          "docs": "Fetches the underlying commits, issues, or pull requests behind report numbers."
+        },
+        {
+          "info": {
+            "name": "Retrieve per-line version history from a repository.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/code_introspections/line_history",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "file_path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sha",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves per-line version history across a repository's commit graph."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Repositories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List existing repository imports.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/imports",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists existing repository imports."
+        },
+        {
+          "info": {
+            "name": "Queue a repository import.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/imports",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"resource_path\": \"\",\n  \"repo_path\": \"\"\n}"
+            }
+          },
+          "docs": "Queues a repository import."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Developers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List developers with activity.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/developers",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "committer_user_name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists developers with their activity."
+        },
+        {
+          "info": {
+            "name": "Record developer time off.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/developers/record_time_off",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"resource_path\": \"\",\n  \"start_date\": \"\"\n}"
+            }
+          },
+          "docs": "Records PTO or absences for a developer."
+        },
+        {
+          "info": {
+            "name": "Set developer stat processing status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/developers/set_processing",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"committer_user_name\": \"\",\n  \"processing_status\": \"processing_stats\"\n}"
+            }
+          },
+          "docs": "Sets a developer's processing status (processing_stats, limited_processing, not_processing)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all teams.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/teams"
+          },
+          "docs": "Lists all teams."
+        },
+        {
+          "info": {
+            "name": "Create a team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/teams",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"name\": \"\"\n}"
+            }
+          },
+          "docs": "Creates a team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
