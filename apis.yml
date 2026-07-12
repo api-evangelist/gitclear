@@ -92,6 +92,14 @@ apis:
   description: List developers and their activity, record and remove time off, set
     per-developer stat processing status, and create or update teams programmatically.
 common:
+- type: TrustCenter
+  url: security/gitclear-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/gitclear-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/gitclear-domain-security.yml
+- type: Authentication
+  url: authentication/gitclear-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/gitclear
 - type: LinkedIn
@@ -106,6 +114,8 @@ common:
   url: rate-limits/gitclear-rate-limits.yml
 - type: FinOps
   url: finops/gitclear-finops.yml
+- url: https://www.gitclear.com/blog
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
