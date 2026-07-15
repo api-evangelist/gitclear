@@ -92,6 +92,8 @@ apis:
   description: List developers and their activity, record and remove time off, set
     per-developer stat processing status, and create or update teams programmatically.
 common:
+- type: AgenticAccess
+  url: agentic-access/gitclear-agentic-access.yml
 - type: TrustCenter
   url: security/gitclear-trust-center.yml
 - type: VulnerabilityDisclosure
