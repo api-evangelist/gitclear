@@ -1,0 +1,156 @@
+openapi: 3.0.1
+info:
+  title: GitClear Public API Tokens Reports API
+  description: Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.
+  termsOfService: https://www.gitclear.com/terms
+  contact:
+    name: GitClear Support
+    url: https://www.gitclear.com/api_reference
+  version: '1.0'
+servers:
+- url: https://www.gitclear.com/api/v1
+security:
+- bearerAuth: []
+tags:
+- name: Reports
+paths:
+  /reports:
+    get:
+      operationId: getReports
+      tags:
+      - Reports
+      summary: Fetch chart data for measured segments.
+      description: Returns historical report data across 160+ available metrics (Diff Delta, PR comments, releases) segmented by repos, issue types, code domain, and teams over time.
+      parameters:
+      - name: resource_path
+        in: query
+        required: true
+        description: Entity, organization, or repository path identifier.
+        schema:
+          type: string
+      - name: segment_by
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: aggregate_by
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: team_slug
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: committer_user_name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: days_ago
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: generate_summary_stats
+        in: query
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /segment_introspections:
+    get:
+      operationId: getSegmentIntrospections
+      tags:
+      - Reports
+      summary: Retrieve metadata about available report segments.
+      parameters:
+      - name: segment_em
+        in: query
+        required: true
+        description: Segment enum identifier.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        response_em:
+          type: string
+          description: Response status enum.
+        response_detail:
+          type: string
+          description: Human-readable response message.
+    ReportResponse:
+      type: object
+      properties:
+        resource_path:
+          type: string
+        segment_by:
+          type: string
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date
+              diff_delta:
+                type: number
+                description: Core durable-change productivity metric.
+              label:
+                type: string
+              value:
+                type: number
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: GitClear API token passed as a Bearer token in the Authorization header.

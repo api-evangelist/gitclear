@@ -1,0 +1,105 @@
+openapi: 3.0.1
+info:
+  title: GitClear Public API Tokens Releases API
+  description: Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.
+  termsOfService: https://www.gitclear.com/terms
+  contact:
+    name: GitClear Support
+    url: https://www.gitclear.com/api_reference
+  version: '1.0'
+servers:
+- url: https://www.gitclear.com/api/v1
+security:
+- bearerAuth: []
+tags:
+- name: Releases
+paths:
+  /releases:
+    get:
+      operationId: listReleases
+      tags:
+      - Releases
+      summary: List releases.
+      parameters:
+      - name: resource_path
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: team_slug
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createRelease
+      tags:
+      - Releases
+      summary: Designate a release or deployment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - resource_path
+              properties:
+                resource_path:
+                  type: string
+                name:
+                  type: string
+                released_at:
+                  type: string
+                  format: date-time
+                release_sha:
+                  type: string
+                issue_keys_resolved:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        response_em:
+          type: string
+          description: Response status enum.
+        response_detail:
+          type: string
+          description: Human-readable response message.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: GitClear API token passed as a Bearer token in the Authorization header.

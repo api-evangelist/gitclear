@@ -1,0 +1,50 @@
+openapi: 3.0.1
+info:
+  title: GitClear Public API Tokens API
+  description: Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.
+  termsOfService: https://www.gitclear.com/terms
+  contact:
+    name: GitClear Support
+    url: https://www.gitclear.com/api_reference
+  version: '1.0'
+servers:
+- url: https://www.gitclear.com/api/v1
+security:
+- bearerAuth: []
+tags:
+- name: API Tokens
+paths:
+  /api_tokens:
+    get:
+      operationId: validateApiToken
+      tags:
+      - API Tokens
+      summary: Validate the current API token status.
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        response_em:
+          type: string
+          description: Response status enum.
+        response_detail:
+          type: string
+          description: Human-readable response message.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: GitClear API token passed as a Bearer token in the Authorization header.

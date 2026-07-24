@@ -1,0 +1,193 @@
+openapi: 3.0.1
+info:
+  title: GitClear Public API Tokens Developers API
+  description: Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.
+  termsOfService: https://www.gitclear.com/terms
+  contact:
+    name: GitClear Support
+    url: https://www.gitclear.com/api_reference
+  version: '1.0'
+servers:
+- url: https://www.gitclear.com/api/v1
+security:
+- bearerAuth: []
+tags:
+- name: Developers
+paths:
+  /developers:
+    get:
+      operationId: listDevelopers
+      tags:
+      - Developers
+      summary: List developers with activity.
+      parameters:
+      - name: resource_path
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: committer_user_name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: sort_by
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeveloperList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /developers/record_time_off:
+    post:
+      operationId: recordTimeOff
+      tags:
+      - Developers
+      summary: Record developer PTO or absences.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - resource_path
+              - start_date
+              properties:
+                resource_path:
+                  type: string
+                start_date:
+                  type: string
+                  format: date
+                end_date:
+                  type: string
+                  format: date
+                committer_user_name:
+                  type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /developers/remove_time_off:
+    post:
+      operationId: removeTimeOff
+      tags:
+      - Developers
+      summary: Remove recorded developer time off.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - resource_path
+              - start_date
+              properties:
+                resource_path:
+                  type: string
+                start_date:
+                  type: string
+                  format: date
+                end_date:
+                  type: string
+                  format: date
+                committer_user_name:
+                  type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /developers/set_processing:
+    post:
+      operationId: setDeveloperProcessing
+      tags:
+      - Developers
+      summary: Set developer stat processing status.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - committer_user_name
+              - processing_status
+              properties:
+                committer_user_name:
+                  type: string
+                processing_status:
+                  type: string
+                  enum:
+                  - processing_stats
+                  - limited_processing
+                  - not_processing
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        response_em:
+          type: string
+          description: Response status enum.
+        response_detail:
+          type: string
+          description: Human-readable response message.
+    DeveloperList:
+      type: object
+      properties:
+        developers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Developer'
+    Developer:
+      type: object
+      properties:
+        committer_user_name:
+          type: string
+          description: Developer's git username.
+        diff_delta:
+          type: number
+        processing_status:
+          type: string
+          enum:
+          - processing_stats
+          - limited_processing
+          - not_processing
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: GitClear API token passed as a Bearer token in the Authorization header.
