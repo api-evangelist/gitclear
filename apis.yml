@@ -7,7 +7,20 @@ description: GitClear provides code and commit analytics for engineering teams, 
   raw lines. Its public REST API exposes repositories, commits/data audits, Diff Delta
   reports, and developer management so teams can pull research-backed productivity and
   AI-ROI metrics programmatically.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: open
+  trial: true
+  try_now: true
+  public: true
+  label: Paid (free trial) · Open access
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/gitclear.png
 tags:
 - Code Analytics
 - Commit Analytics
@@ -18,79 +31,134 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: gitclear:gitclear-repositories-api
-  name: GitClear Repositories API
-  tags:
-  - Repositories
-  - Imports
-  - Code
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: gitclear:gitclear-api-tokens-api
+  name: GitClear API Tokens API
+  description: The API Tokens API from GitClear — 1 operation(s) for api tokens.
   humanURL: https://www.gitclear.com/api_reference
   baseURL: https://www.gitclear.com/api/v1
-  properties:
-  - url: https://www.gitclear.com/help/customer_rest_api
-    type: Documentation
-  - url: https://www.gitclear.com/api_reference
-    type: APIReference
-  - url: openapi/gitclear-openapi.yml
-    type: OpenAPI
-  description: List and queue repository imports, and connect repositories that GitClear
-    analyzes for commit history and Diff Delta scoring.
-- aid: gitclear:gitclear-commits-api
-  name: GitClear Commits API
   tags:
-  - Commits
+  - API Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/gitclear-api-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://www.gitclear.com/help/customer_rest_api
+  - type: APIReference
+    url: https://www.gitclear.com/api_reference
+  - type: Documentation
+    url: https://www.gitclear.com/diff_delta_factors
+- aid: gitclear:gitclear-code-introspection-api
+  name: GitClear Code Introspection API
+  description: The Code Introspection API from GitClear — 1 operation(s) for code introspection.
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  tags:
+  - Code Introspection
+  properties:
+  - type: OpenAPI
+    url: openapi/gitclear-code-introspection-api-openapi.yml
+  - type: Documentation
+    url: https://www.gitclear.com/help/customer_rest_api
+  - type: APIReference
+    url: https://www.gitclear.com/api_reference
+  - type: Documentation
+    url: https://www.gitclear.com/diff_delta_factors
+- aid: gitclear:gitclear-data-audit-api
+  name: GitClear Data Audit API
+  description: The Data Audit API from GitClear — 1 operation(s) for data audit.
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  tags:
   - Data Audit
-  - Line History
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.gitclear.com/api_reference
-  baseURL: https://www.gitclear.com/api/v1
   properties:
-  - url: https://www.gitclear.com/help/customer_rest_api
-    type: Documentation
-  - url: https://www.gitclear.com/api_reference
-    type: APIReference
-  - url: openapi/gitclear-openapi.yml
-    type: OpenAPI
-  description: Audit the underlying commits, pull requests, and issues behind report
-    numbers, and trace per-line version history across a repository's commit graph.
-- aid: gitclear:gitclear-metrics-diff-delta-api
-  name: GitClear Metrics & Diff Delta API
-  tags:
-  - Metrics
-  - Diff Delta
-  - Reports
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.gitclear.com/api_reference
-  baseURL: https://www.gitclear.com/api/v1
-  properties:
-  - url: https://www.gitclear.com/diff_delta_factors
-    type: Documentation
-  - url: https://www.gitclear.com/api_reference
-    type: APIReference
-  - url: openapi/gitclear-openapi.yml
-    type: OpenAPI
-  description: Fetch chart and report data across 160+ measured segments - Diff Delta,
-    PR comments, releases - aggregated and segmented by repo, team, issue type, and
-    code domain over time.
+  - type: OpenAPI
+    url: openapi/gitclear-data-audit-api-openapi.yml
+  - type: Documentation
+    url: https://www.gitclear.com/help/customer_rest_api
+  - type: APIReference
+    url: https://www.gitclear.com/api_reference
+  - type: Documentation
+    url: https://www.gitclear.com/diff_delta_factors
 - aid: gitclear:gitclear-developers-api
   name: GitClear Developers API
-  tags:
-  - Developers
-  - Teams
-  - Activity
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  description: The Developers API from GitClear — 4 operation(s) for developers.
   humanURL: https://www.gitclear.com/api_reference
   baseURL: https://www.gitclear.com/api/v1
+  tags:
+  - Developers
   properties:
-  - url: https://www.gitclear.com/help/customer_rest_api
-    type: Documentation
-  - url: https://www.gitclear.com/api_reference
-    type: APIReference
-  - url: openapi/gitclear-openapi.yml
-    type: OpenAPI
-  description: List developers and their activity, record and remove time off, set
-    per-developer stat processing status, and create or update teams programmatically.
+  - type: OpenAPI
+    url: openapi/gitclear-developers-api-openapi.yml
+  - type: Documentation
+    url: https://www.gitclear.com/help/customer_rest_api
+  - type: APIReference
+    url: https://www.gitclear.com/api_reference
+  - type: Documentation
+    url: https://www.gitclear.com/diff_delta_factors
+- aid: gitclear:gitclear-imports-api
+  name: GitClear Imports API
+  description: The Imports API from GitClear — 1 operation(s) for imports.
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  tags:
+  - Imports
+  properties:
+  - type: OpenAPI
+    url: openapi/gitclear-imports-api-openapi.yml
+  - type: Documentation
+    url: https://www.gitclear.com/help/customer_rest_api
+  - type: APIReference
+    url: https://www.gitclear.com/api_reference
+  - type: Documentation
+    url: https://www.gitclear.com/diff_delta_factors
+- aid: gitclear:gitclear-releases-api
+  name: GitClear Releases API
+  description: The Releases API from GitClear — 1 operation(s) for releases.
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  tags:
+  - Releases
+  properties:
+  - type: OpenAPI
+    url: openapi/gitclear-releases-api-openapi.yml
+  - type: Documentation
+    url: https://www.gitclear.com/help/customer_rest_api
+  - type: APIReference
+    url: https://www.gitclear.com/api_reference
+  - type: Documentation
+    url: https://www.gitclear.com/diff_delta_factors
+- aid: gitclear:gitclear-reports-api
+  name: GitClear Reports API
+  description: The Reports API from GitClear — 2 operation(s) for reports.
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/gitclear-reports-api-openapi.yml
+  - type: Documentation
+    url: https://www.gitclear.com/help/customer_rest_api
+  - type: APIReference
+    url: https://www.gitclear.com/api_reference
+  - type: Documentation
+    url: https://www.gitclear.com/diff_delta_factors
+- aid: gitclear:gitclear-teams-api
+  name: GitClear Teams API
+  description: The Teams API from GitClear — 2 operation(s) for teams.
+  humanURL: https://www.gitclear.com/api_reference
+  baseURL: https://www.gitclear.com/api/v1
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/gitclear-teams-api-openapi.yml
+  - type: Documentation
+    url: https://www.gitclear.com/help/customer_rest_api
+  - type: APIReference
+    url: https://www.gitclear.com/api_reference
+  - type: Documentation
+    url: https://www.gitclear.com/diff_delta_factors
 common:
 - type: AgenticAccess
   url: agentic-access/gitclear-agentic-access.yml
