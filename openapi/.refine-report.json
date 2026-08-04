@@ -1,0 +1,28 @@
+{
+  "provider": "gitclear",
+  "sources": [
+    "gitclear-api-tokens-api-openapi.yml",
+    "gitclear-code-introspection-api-openapi.yml",
+    "gitclear-data-audit-api-openapi.yml",
+    "gitclear-developers-api-openapi.yml",
+    "gitclear-imports-api-openapi.yml",
+    "gitclear-releases-api-openapi.yml",
+    "gitclear-reports-api-openapi.yml",
+    "gitclear-teams-api-openapi.yml"
+  ],
+  "outputs": [
+    "gitclear-api-tokens-api-openapi.yml",
+    "gitclear-code-introspection-api-openapi.yml",
+    "gitclear-data-audit-api-openapi.yml",
+    "gitclear-developers-api-openapi.yml",
+    "gitclear-imports-api-openapi.yml",
+    "gitclear-releases-api-openapi.yml",
+    "gitclear-reports-api-openapi.yml",
+    "gitclear-teams-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
