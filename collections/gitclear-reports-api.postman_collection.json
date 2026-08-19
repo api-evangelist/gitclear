@@ -1,0 +1,498 @@
+{
+  "item": [
+    {
+      "id": "3903ed5d-e31c-4f73-88a0-1f64e93877c2",
+      "name": "Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6b408f90-6521-429e-a1cc-d1d487db5680",
+          "name": "Fetch chart data for measured segments.",
+          "request": {
+            "name": "Fetch chart data for measured segments.",
+            "description": {
+              "content": "Returns historical report data across 160+ available metrics (Diff Delta, PR comments, releases) segmented by repos, issue types, code domain, and teams over time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource_path",
+                  "value": "<string>",
+                  "description": "(Required) Entity, organization, or repository path identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "segment_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "team_slug",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "committer_user_name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_ago",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "generate_summary_stats",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0681ba49-e278-497b-858d-8d2ea3aac6c5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource_path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "segment_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "team_slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "committer_user_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "days_ago",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "generate_summary_stats",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resource_path\": \"string\",\n  \"segment_by\": \"string\",\n  \"results\": [\n    {\n      \"date\": \"2011-05-13\",\n      \"diff_delta\": 9382.060190874654,\n      \"label\": \"string\",\n      \"value\": 5305.986187989588\n    },\n    {\n      \"date\": \"1983-08-21\",\n      \"diff_delta\": 9885.414548127022,\n      \"label\": \"string\",\n      \"value\": 5233.6373137948585\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50599bd6-dc81-4c09-98ef-af3f8d75a3f4",
+              "name": "Missing or invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource_path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "segment_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "team_slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "committer_user_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "days_ago",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "generate_summary_stats",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_em\": \"string\",\n  \"response_detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0118d603-ba26-466b-8cb7-a9cbdc0cf236",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource_path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "segment_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "team_slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "committer_user_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "days_ago",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "generate_summary_stats",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_em\": \"string\",\n  \"response_detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "576f2277-8a25-4d01-a9b8-4ac43e130b02",
+          "name": "Retrieve metadata about available report segments.",
+          "request": {
+            "name": "Retrieve metadata about available report segments.",
+            "description": {},
+            "url": {
+              "path": [
+                "segment_introspections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "segment_em",
+                  "value": "<string>",
+                  "description": "(Required) Segment enum identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42962ef1-9335-49ad-8b58-9e79fcb11795",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "segment_introspections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "segment_em",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "606796c8-6173-4cd3-b0dc-b51f236660f8",
+              "name": "Missing or invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "segment_introspections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "segment_em",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_em\": \"string\",\n  \"response_detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.gitclear.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3c912a73-2de2-4391-a38d-821d88a1396d",
+    "name": "GitClear Public API Tokens Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.\n\nContact Support:\n Name: GitClear Support",
+      "type": "text/plain"
+    }
+  }
+}

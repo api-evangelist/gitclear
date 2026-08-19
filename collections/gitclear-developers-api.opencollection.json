@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitClear Public API Tokens Developers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Developers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List developers with activity.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/developers",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "committer_user_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List developers with activity."
+        },
+        {
+          "info": {
+            "name": "Record developer PTO or absences.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/developers/record_time_off",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Record developer PTO or absences."
+        },
+        {
+          "info": {
+            "name": "Remove recorded developer time off.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/developers/remove_time_off",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove recorded developer time off."
+        },
+        {
+          "info": {
+            "name": "Set developer stat processing status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/developers/set_processing",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set developer stat processing status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

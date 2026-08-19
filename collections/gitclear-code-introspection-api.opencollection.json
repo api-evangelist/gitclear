@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitClear Public API Tokens Code Introspection API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Code Introspection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve per-line version history from a repository.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/code_introspections/line_history",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "file_path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sha",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "line_number_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "line_number_before",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max_hops",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve per-line version history from a repository."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

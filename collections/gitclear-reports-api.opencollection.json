@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitClear Public API Tokens Reports API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch chart data for measured segments.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/reports",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query",
+                "description": "Entity, organization, or repository path identifier."
+              },
+              {
+                "name": "segment_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggregate_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "team_slug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "committer_user_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "days_ago",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "generate_summary_stats",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns historical report data across 160+ available metrics (Diff Delta, PR comments, releases) segmented by repos, issue types, code domain, and teams over time."
+        },
+        {
+          "info": {
+            "name": "Retrieve metadata about available report segments.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/segment_introspections",
+            "params": [
+              {
+                "name": "segment_em",
+                "value": "",
+                "type": "query",
+                "description": "Segment enum identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve metadata about available report segments."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

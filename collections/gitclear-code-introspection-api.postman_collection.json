@@ -1,0 +1,246 @@
+{
+  "item": [
+    {
+      "id": "4f82b29a-c3fc-44f4-bd40-149e8e61bb33",
+      "name": "Code Introspection",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "49fdcb9d-2f02-4b01-8a40-19cce1a4f137",
+          "name": "Retrieve per-line version history from a repository.",
+          "request": {
+            "name": "Retrieve per-line version history from a repository.",
+            "description": {},
+            "url": {
+              "path": [
+                "code_introspections",
+                "line_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource_path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "file_path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sha",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "line_number_after",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "line_number_before",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_hops",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d250d41-d05a-4351-bd3d-0b9c62cec017",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "code_introspections",
+                    "line_history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource_path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "file_path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sha",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "line_number_after",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "line_number_before",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_hops",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96d1375d-12a5-4aed-8bc5-de36fc866bff",
+              "name": "Missing or invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "code_introspections",
+                    "line_history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource_path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "file_path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sha",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "line_number_after",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "line_number_before",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_hops",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_em\": \"string\",\n  \"response_detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.gitclear.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9bf216ec-fe38-4198-a54b-328541f1947e",
+    "name": "GitClear Public API Tokens Code Introspection API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.\n\nContact Support:\n Name: GitClear Support",
+      "type": "text/plain"
+    }
+  }
+}

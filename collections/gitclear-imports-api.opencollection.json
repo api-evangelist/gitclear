@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitClear Public API Tokens Imports API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List existing repository imports.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/imports",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List existing repository imports."
+        },
+        {
+          "info": {
+            "name": "Queue a repository import.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/imports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Queue a repository import."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

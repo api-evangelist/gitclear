@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitClear Public API Tokens Teams API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all teams.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/teams",
+            "params": [
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all teams."
+        },
+        {
+          "info": {
+            "name": "Create a team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitclear.com/api/v1/teams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a team."
+        },
+        {
+          "info": {
+            "name": "Update a team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitclear.com/api/v1/teams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a team."
+        },
+        {
+          "info": {
+            "name": "Delete a team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitclear.com/api/v1/teams"
+          },
+          "docs": "Delete a team."
+        },
+        {
+          "info": {
+            "name": "List repositories associated with a team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitclear.com/api/v1/teams/associated_repos",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource_path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List repositories associated with a team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
