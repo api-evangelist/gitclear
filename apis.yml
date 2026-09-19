@@ -113,6 +113,8 @@ apis:
   humanURL: https://www.gitclear.com/api_reference
   baseURL: https://www.gitclear.com/api/v1
   tags:
+  - Import
+  tags_raw:
   - Imports
   properties:
   - type: OpenAPI
