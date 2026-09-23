@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitClear Public API Tokens Teams API
+  title: GitClear Public Teams API
   description: Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.
   termsOfService: https://www.gitclear.com/terms
   contact:
@@ -19,7 +19,7 @@ paths:
       operationId: listTeams
       tags:
       - Teams
-      summary: List all teams.
+      summary: List all teams
       parameters:
       - name: resource_path
         in: query
@@ -39,7 +39,7 @@ paths:
       operationId: createTeam
       tags:
       - Teams
-      summary: Create a team.
+      summary: Create a team
       requestBody:
         required: true
         content:
@@ -72,7 +72,7 @@ paths:
       operationId: updateTeam
       tags:
       - Teams
-      summary: Update a team.
+      summary: Update a team
       requestBody:
         required: true
         content:
@@ -88,7 +88,7 @@ paths:
       operationId: deleteTeam
       tags:
       - Teams
-      summary: Delete a team.
+      summary: Delete a team
       responses:
         '200':
           description: OK
@@ -99,7 +99,7 @@ paths:
       operationId: listTeamAssociatedRepos
       tags:
       - Teams
-      summary: List repositories associated with a team.
+      summary: List repositories associated with a team
       parameters:
       - name: name
         in: query
@@ -122,13 +122,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -139,6 +132,13 @@ components:
         response_detail:
           type: string
           description: Human-readable response message.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http

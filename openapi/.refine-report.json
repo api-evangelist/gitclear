@@ -1,14 +1,7 @@
 {
   "provider": "gitclear",
   "sources": [
-    "gitclear-api-tokens-api-openapi.yml",
-    "gitclear-code-introspection-api-openapi.yml",
-    "gitclear-data-audit-api-openapi.yml",
-    "gitclear-developers-api-openapi.yml",
-    "gitclear-imports-api-openapi.yml",
-    "gitclear-releases-api-openapi.yml",
-    "gitclear-reports-api-openapi.yml",
-    "gitclear-teams-api-openapi.yml"
+    "_original/gitclear-openapi.yml"
   ],
   "outputs": [
     "gitclear-api-tokens-api-openapi.yml",
@@ -23,6 +16,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "gitclear-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "gitclear-openapi.yml: declared missing tag: API Tokens",
+    "gitclear-openapi.yml: declared missing tag: Code Introspection",
+    "gitclear-openapi.yml: declared missing tag: Data Audit",
+    "gitclear-openapi.yml: declared missing tag: Developers",
+    "gitclear-openapi.yml: declared missing tag: Imports",
+    "gitclear-openapi.yml: declared missing tag: Releases",
+    "gitclear-openapi.yml: declared missing tag: Reports",
+    "gitclear-openapi.yml: declared missing tag: Teams",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "gitclear-api-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitclear-code-introspection-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitclear-data-audit-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitclear-developers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitclear-imports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitclear-releases-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitclear-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitclear-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

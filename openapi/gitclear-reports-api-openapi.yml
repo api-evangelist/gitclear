@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitClear Public API Tokens Reports API
+  title: GitClear Public Reports API
   description: Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.
   termsOfService: https://www.gitclear.com/terms
   contact:
@@ -19,7 +19,7 @@ paths:
       operationId: getReports
       tags:
       - Reports
-      summary: Fetch chart data for measured segments.
+      summary: Fetch chart data for measured segments
       description: Returns historical report data across 160+ available metrics (Diff Delta, PR comments, releases) segmented by repos, issue types, code domain, and teams over time.
       parameters:
       - name: resource_path
@@ -86,7 +86,7 @@ paths:
       operationId: getSegmentIntrospections
       tags:
       - Reports
-      summary: Retrieve metadata about available report segments.
+      summary: Retrieve metadata about available report segments
       parameters:
       - name: segment_em
         in: query
@@ -104,29 +104,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    TooManyRequests:
-      description: Rate limit exceeded.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        response_em:
-          type: string
-          description: Response status enum.
-        response_detail:
-          type: string
-          description: Human-readable response message.
     ReportResponse:
       type: object
       properties:
@@ -149,6 +127,28 @@ components:
                 type: string
               value:
                 type: number
+    Error:
+      type: object
+      properties:
+        response_em:
+          type: string
+          description: Response status enum.
+        response_detail:
+          type: string
+          description: Human-readable response message.
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http

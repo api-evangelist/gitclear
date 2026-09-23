@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitClear Public API Tokens Developers API
+  title: GitClear Public Developers API
   description: Public REST API for GitClear code and commit analytics. Pull Diff Delta reports and underlying data audits, manage repository imports, trace per-line code history, and administer developers and teams. All endpoints require a Bearer API token. Paths and parameters reflect GitClear's published API reference; request/response schemas beyond the documented parameters are not fully enumerated by the provider and are modeled conservatively here.
   termsOfService: https://www.gitclear.com/terms
   contact:
@@ -19,7 +19,7 @@ paths:
       operationId: listDevelopers
       tags:
       - Developers
-      summary: List developers with activity.
+      summary: List developers with activity
       parameters:
       - name: resource_path
         in: query
@@ -61,7 +61,7 @@ paths:
       operationId: recordTimeOff
       tags:
       - Developers
-      summary: Record developer PTO or absences.
+      summary: Record developer PTO or absences
       requestBody:
         required: true
         content:
@@ -92,7 +92,7 @@ paths:
       operationId: removeTimeOff
       tags:
       - Developers
-      summary: Remove recorded developer time off.
+      summary: Remove recorded developer time off
       requestBody:
         required: true
         content:
@@ -123,7 +123,7 @@ paths:
       operationId: setDeveloperProcessing
       tags:
       - Developers
-      summary: Set developer stat processing status.
+      summary: Set developer stat processing status
       requestBody:
         required: true
         content:
@@ -148,14 +148,21 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    Developer:
+      type: object
+      properties:
+        committer_user_name:
+          type: string
+          description: Developer's git username.
+        diff_delta:
+          type: number
+        processing_status:
+          type: string
+          enum:
+          - processing_stats
+          - limited_processing
+          - not_processing
     Error:
       type: object
       properties:
@@ -172,20 +179,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Developer'
-    Developer:
-      type: object
-      properties:
-        committer_user_name:
-          type: string
-          description: Developer's git username.
-        diff_delta:
-          type: number
-        processing_status:
-          type: string
-          enum:
-          - processing_stats
-          - limited_processing
-          - not_processing
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http
