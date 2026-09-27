@@ -149,20 +149,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Developer:
-      type: object
-      properties:
-        committer_user_name:
-          type: string
-          description: Developer's git username.
-        diff_delta:
-          type: number
-        processing_status:
-          type: string
-          enum:
-          - processing_stats
-          - limited_processing
-          - not_processing
     Error:
       type: object
       properties:
@@ -179,6 +165,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Developer'
+    Developer:
+      type: object
+      properties:
+        committer_user_name:
+          type: string
+          description: Developer's git username.
+        diff_delta:
+          type: number
+        processing_status:
+          type: string
+          enum:
+          - processing_stats
+          - limited_processing
+          - not_processing
   responses:
     Unauthorized:
       description: Missing or invalid API token.
