@@ -149,15 +149,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        response_em:
-          type: string
-          description: Response status enum.
-        response_detail:
-          type: string
-          description: Human-readable response message.
     DeveloperList:
       type: object
       properties:
@@ -179,6 +170,15 @@ components:
           - processing_stats
           - limited_processing
           - not_processing
+    Error:
+      type: object
+      properties:
+        response_em:
+          type: string
+          description: Response status enum.
+        response_detail:
+          type: string
+          description: Human-readable response message.
   responses:
     Unauthorized:
       description: Missing or invalid API token.
