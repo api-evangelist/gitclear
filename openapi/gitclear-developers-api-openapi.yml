@@ -149,13 +149,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    DeveloperList:
-      type: object
-      properties:
-        developers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Developer'
     Developer:
       type: object
       properties:
@@ -170,6 +163,13 @@ components:
           - processing_stats
           - limited_processing
           - not_processing
+    DeveloperList:
+      type: object
+      properties:
+        developers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Developer'
     Error:
       type: object
       properties:
