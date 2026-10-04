@@ -176,6 +176,9 @@ apis:
   - type: Documentation
     url: https://www.gitclear.com/diff_delta_factors
 common:
+- type: CapabilityMap
+  url: capabilities/gitclear-capability-edges.yml
+  name: GitClear Business Capability Map
 - type: AgenticAccess
   url: agentic-access/gitclear-agentic-access.yml
 - type: TrustCenter
