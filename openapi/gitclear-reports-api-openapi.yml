@@ -137,14 +137,14 @@ components:
               value:
                 type: number
   responses:
-    TooManyRequests:
-      description: Rate limit exceeded.
+    Unauthorized:
+      description: Missing or invalid API token.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API token.
+    TooManyRequests:
+      description: Rate limit exceeded.
       content:
         application/json:
           schema:
