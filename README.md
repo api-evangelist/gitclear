@@ -1,4 +1,4 @@
-# GitClear (gitclear)
+# GitClear
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,118 +66,132 @@
 
 GitClear provides code and commit analytics for engineering teams, centered on its Diff Delta metric (formerly Line Impact) that scores durable code change beyond raw lines. Its public REST API exposes repositories, commits/data audits, Diff Delta reports, and developer management so teams can pull research-backed productivity and AI-ROI metrics programmatically.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/gitclear/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/gitclear/refs/heads/main/apis.yml)
+**Areas:** Code Analytics · Commit Analytics · Developer Productivity · Diff Delta · Engineering Metrics
 
-## Tags
+## GitClear on APIs.io
 
-- Code Analytics
-- Commit Analytics
-- Developer Productivity
-- Diff Delta
-- Engineering Metrics
+Everything profiled for GitClear is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gitclear/](https://apis.io/providers/gitclear/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (8)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [GitClear API Tokens API](https://apis.io/apis/gitclear/gitclear-api-tokens-api/) — The API Tokens API from GitClear — 1 operation(s) for api tokens.
+- [GitClear Code Introspection API](https://apis.io/apis/gitclear/gitclear-code-introspection-api/) — The Code Introspection API from GitClear — 1 operation(s) for code introspection.
+- [GitClear Data Audit API](https://apis.io/apis/gitclear/gitclear-data-audit-api/) — The Data Audit API from GitClear — 1 operation(s) for data audit.
+- [GitClear Developers API](https://apis.io/apis/gitclear/gitclear-developers-api/) — The Developers API from GitClear — 4 operation(s) for developers.
+- [GitClear Imports API](https://apis.io/apis/gitclear/gitclear-imports-api/) — The Imports API from GitClear — 1 operation(s) for imports.
+- [GitClear Releases API](https://apis.io/apis/gitclear/gitclear-releases-api/) — The Releases API from GitClear — 1 operation(s) for releases.
+- [GitClear Reports API](https://apis.io/apis/gitclear/gitclear-reports-api/) — The Reports API from GitClear — 2 operation(s) for reports.
+- [GitClear Teams API](https://apis.io/apis/gitclear/gitclear-teams-api/) — The Teams API from GitClear — 2 operation(s) for teams.
 
-## APIs
+### Published properties
 
-### GitClear Repositories API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-List and queue repository imports, and connect repositories that GitClear analyzes for commit history and Diff Delta scoring.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.gitclear.com/api_reference](https://www.gitclear.com/api_reference)
-- **Base URL:** `https://www.gitclear.com/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Gitclear Agentic Access](https://apis.io/agentic-access/gitclear/gitclear-agentic-access/)
 
-- Repositories
-- Imports
-- Code
+#### Collections (9)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://www.gitclear.com/help/customer_rest_api)
-- [API Reference](https://www.gitclear.com/api_reference)
-- [OpenAPI](openapi/gitclear-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gitclear.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitclear.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [GitClear Public API](https://apis.io/collections/gitclear/open-gitclear/)
+- [GitClear Public API Tokens API](https://apis.io/collections/gitclear/open-gitclear-api-tokens-api/)
+- [GitClear Public API Tokens Code Introspection API](https://apis.io/collections/gitclear/open-gitclear-code-introspection-api/)
+- [GitClear Public API Tokens Data Audit API](https://apis.io/collections/gitclear/open-gitclear-data-audit-api/)
+- [GitClear Public API Tokens Developers API](https://apis.io/collections/gitclear/open-gitclear-developers-api/)
+- [GitClear Public API Tokens Imports API](https://apis.io/collections/gitclear/open-gitclear-imports-api/)
+- [GitClear Public API Tokens Releases API](https://apis.io/collections/gitclear/open-gitclear-releases-api/)
+- [GitClear Public API Tokens Reports API](https://apis.io/collections/gitclear/open-gitclear-reports-api/)
+- [GitClear Public API Tokens Teams API](https://apis.io/collections/gitclear/open-gitclear-teams-api/)
 
-### GitClear Commits API
+#### Security (4)
 
-Audit the underlying commits, pull requests, and issues behind report numbers, and trace per-line version history across a repository's commit graph.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.gitclear.com/api_reference](https://www.gitclear.com/api_reference)
-- **Base URL:** `https://www.gitclear.com/api/v1`
+- [Gitclear Authentication](https://apis.io/security/gitclear/gitclear-authentication/)
+- [Gitclear Domain Security](https://apis.io/security/gitclear/gitclear-domain-security/)
+- [Gitclear Trust Center](https://apis.io/security/gitclear/gitclear-trust-center/)
+- [Gitclear Vulnerability Disclosure](https://apis.io/security/gitclear/gitclear-vulnerability-disclosure/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Commits
-- Data Audit
-- Line History
+Published plans, tiers and prices.
 
-#### Properties
+- [Gitclear Plans Pricing](https://apis.io/plans/gitclear/gitclear-plans-pricing/)
 
-- [Documentation](https://www.gitclear.com/help/customer_rest_api)
-- [API Reference](https://www.gitclear.com/api_reference)
-- [OpenAPI](openapi/gitclear-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gitclear.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitclear.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### GitClear Metrics & Diff Delta API
+Published request limits.
 
-Fetch chart and report data across 160+ measured segments - Diff Delta, PR comments, releases - aggregated and segmented by repo, team, issue type, and code domain over time.
+- [Gitclear Rate Limits](https://apis.io/rate-limits/gitclear/gitclear-rate-limits/)
 
-- **Human URL:** [https://www.gitclear.com/api_reference](https://www.gitclear.com/api_reference)
-- **Base URL:** `https://www.gitclear.com/api/v1`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Metrics
-- Diff Delta
-- Reports
+- [Gitclear Finops](https://apis.io/finops/gitclear/gitclear-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://www.gitclear.com/diff_delta_factors)
-- [API Reference](https://www.gitclear.com/api_reference)
-- [OpenAPI](openapi/gitclear-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gitclear.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitclear.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### GitClear Developers API
-
-List developers and their activity, record and remove time off, set per-developer stat processing status, and create or update teams programmatically.
-
-- **Human URL:** [https://www.gitclear.com/api_reference](https://www.gitclear.com/api_reference)
-- **Base URL:** `https://www.gitclear.com/api/v1`
-
-#### Tags
-
-- Developers
-- Teams
-- Activity
-
-#### Properties
-
-- [Documentation](https://www.gitclear.com/help/customer_rest_api)
-- [API Reference](https://www.gitclear.com/api_reference)
-- [OpenAPI](openapi/gitclear-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gitclear.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitclear.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/gitclear)
-- [LinkedIn](https://www.linkedin.com/company/gitclear)
 - [Website](https://www.gitclear.com)
 - [Documentation](https://www.gitclear.com/api_reference)
-- [Plans](plans/gitclear-plans-pricing.yml)
-- [Rate Limits](rate-limits/gitclear-rate-limits.yml)
-- [Fin Ops](finops/gitclear-finops.yml)
+- [Blog](https://www.gitclear.com/blog)
+- [GitHub](https://github.com/gitclear)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 15.8 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gitclear/](https://apis.io/providers/gitclear/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GitClear: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gitclear/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
